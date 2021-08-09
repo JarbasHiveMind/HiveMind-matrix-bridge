@@ -21,8 +21,12 @@ class JarbasMatrixBridge(HiveMindTerminal):
         self.bot.on_message = self.handle_matrix_utterance
 
     def handle_matrix_utterance(self, event):
-        print("{0}: {1}".format(event['sender'], event['content']['body']))
-        msg = {"data": {"utterances": [event['content']['body']],
+        utt = event['content']['body']
+        LOG.info("{0}: {1}".format(event['sender'], utt))
+        mention = "@" + self.bot_mention
+        if mention in utt:
+            utt = utt.replace(mention, "")
+        msg = {"data": {"utterances": [utt],
                         "lang": "en-us"},
                "type": "recognizer_loop:utterance",
                "context": {"source": self.client.peer,
@@ -32,7 +36,7 @@ class JarbasMatrixBridge(HiveMindTerminal):
 
     # terminal
     def speak(self, utterance):
-        print("Mycroft:", utterance)
+        LOG.info("Mycroft:", utterance)
         self.bot.room.send_text(utterance)
 
     # parsed protocol messages
@@ -45,5 +49,5 @@ class JarbasMatrixBridge(HiveMindTerminal):
             LOG.error("complete intent failure")
             self.speak('I don\'t know how to answer that')
         else:
-            print(message.data)
+            LOG.info(message.data)
 
