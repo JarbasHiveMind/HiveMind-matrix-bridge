@@ -1,0 +1,2 @@
+jarbas_hive_mind>=0.10.7
+python-matrixbot
