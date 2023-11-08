@@ -1,5 +1,9 @@
 # HiveMind - Matrix bridge
 
+![imagem](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/assets/33701864/f70c7889-43eb-41b1-b295-d4d5040ab610)
+
+## Usage
+
 ```
 Usage: HiveMind-matrix run [OPTIONS]
 
