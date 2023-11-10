@@ -65,9 +65,11 @@ class MatrixBot:
 
     def handle_message(self, room, event):
         if event['type'] == "m.room.member":
-            if event['membership'] == "join":
+            if event["content"]['membership'] == "join":
                 self.on_joined(event)
         elif event['type'] == "m.room.message":
+            if event["content"].get('m.relates_to', {}).get('m.in_reply_to', {}):
+                pass # TODO - get text of original message
             if event['content']['msgtype'] == "m.text":
                 if self.bot_mention:
                     if self.bot_mention in event['content']['body']:

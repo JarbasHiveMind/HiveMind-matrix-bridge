@@ -13,7 +13,7 @@ setup(
                       "python-matrixbot"],
     entry_points={
         'console_scripts': [
-            'HiveMind-matrix=matrix_bridge.__main__:main'
+            'HiveMind-matrix=hm_matrix_bridge.__main__:main'
         ]
     }
 )
