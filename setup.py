@@ -9,7 +9,7 @@ setup(
     author='jarbasAI',
     author_email='jarbasai@mailfence.com',
     description='',
-    install_requires=["jarbas_hive_mind>=0.10.7",
+    install_requires=["hivemind_bus_client",
                       "python-matrixbot"],
     entry_points={
         'console_scripts': [
