@@ -1,17 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/HEAD)
+## [0.1.2a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.1.2a1) (2025-12-18)
 
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/00eb822de58a1a1137c2a1c9ebc5196f7b04198d...HEAD)
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.1.1...0.1.2a1)
 
-**Closed issues:**
+**Implemented enhancements:**
 
-- Not able to reconnect [\#2](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/issues/2)
+- Replace python-matrixbox by simplematrixbotlib [\#6](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/issues/6)
 
 **Merged pull requests:**
 
-- semver [\#5](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/5) ([JarbasAl](https://github.com/JarbasAl))
-- refactor!:move to solver [\#4](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/4) ([JarbasAl](https://github.com/JarbasAl))
+- Configure Renovate [\#7](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/7) ([renovate[bot]](https://github.com/apps/renovate))
 
 
 
