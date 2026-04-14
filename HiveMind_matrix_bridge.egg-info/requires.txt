@@ -1,0 +1,4 @@
+hivemind_bus_client<1.0.0,>=0.4.2
+click
+python-matrixbot>=0.0.7
+ovos-solver-hivemind-plugin

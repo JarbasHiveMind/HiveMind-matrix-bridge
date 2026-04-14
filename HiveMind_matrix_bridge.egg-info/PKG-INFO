@@ -1,0 +1,45 @@
+Metadata-Version: 2.4
+Name: HiveMind-matrix-bridge
+Version: 0.1.2a1
+Summary: matrix bridge for hivemind
+Home-page: https://github.com/JarbasHiveMind/HiveMind-matrix-bridge
+Author: jarbasAI
+Author-email: jarbasai@mailfence.com
+License: MIT
+Description-Content-Type: text/markdown
+License-File: LICENSE
+Requires-Dist: hivemind_bus_client<1.0.0,>=0.4.2
+Requires-Dist: click
+Requires-Dist: python-matrixbot>=0.0.7
+Requires-Dist: ovos-solver-hivemind-plugin
+Dynamic: author
+Dynamic: author-email
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: license
+Dynamic: license-file
+Dynamic: requires-dist
+Dynamic: summary
+
+# HiveMind - Matrix bridge
+
+![imagem](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/assets/33701864/f70c7889-43eb-41b1-b295-d4d5040ab610)
+
+## Usage
+
+set hivemind credentials in identity file
+
+```
+Usage: HiveMind-matrix run [OPTIONS]
+
+  connect a matrix chatroom to hivemind
+
+Options:
+  --botname TEXT      thehivebot
+  --matrixtoken TEXT  syt_dGhl.....
+  --matrixhost TEXT   https://matrix.org
+  --room TEXT         #hivemind-bots:matrix.org
+  --help              Show this message and exit.
+
+```

@@ -1,0 +1,13 @@
+LICENSE
+README.md
+setup.py
+HiveMind_matrix_bridge.egg-info/PKG-INFO
+HiveMind_matrix_bridge.egg-info/SOURCES.txt
+HiveMind_matrix_bridge.egg-info/dependency_links.txt
+HiveMind_matrix_bridge.egg-info/entry_points.txt
+HiveMind_matrix_bridge.egg-info/requires.txt
+HiveMind_matrix_bridge.egg-info/top_level.txt
+hm_matrix_bridge/__init__.py
+hm_matrix_bridge/__main__.py
+hm_matrix_bridge/matrixapi.py
+hm_matrix_bridge/version.py
