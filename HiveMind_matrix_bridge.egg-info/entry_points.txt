@@ -1,0 +1,2 @@
+[console_scripts]
+HiveMind-matrix = hm_matrix_bridge.__main__:main
