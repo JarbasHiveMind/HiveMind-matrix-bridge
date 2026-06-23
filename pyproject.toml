@@ -18,9 +18,21 @@ test = ["pytest"]
 # floors below let a plain `pip install -e .[e2e]` resolve the 2.x hivemind-core
 # stack with no --pre (PEP 440: a prerelease floor opts that package into
 # prereleases). hivescope>=0.5.1a1 carries the loopback + get_client_by_id fixes.
+#
+# The hivemind-core 2.x stack and its plugin chain are still prerelease-only.
+# We floor each to its prerelease so pip resolves directly instead of
+# backtracking stable->prerelease for every transitive package (which trips
+# pip's `resolution-too-deep` guard on this large graph). These are e2e-only.
 e2e = [
     "pytest",
     "hivescope>=0.5.1a1",
+    "hivemind-core>=4.6.7a1",
+    "hivemind-plugin-manager>=0.8.0a1",
+    "hivemind-websocket-protocol>=0.2.1a1",
+    "hivemind-ovos-agent-plugin>=0.3.2a1",
+    "hivemind-json-db-plugin>=0.0.3a2",
+    "hivemind-sqlite-database>=0.4.0a2",
+    "ovos-translate-server-plugin>=0.0.8a1",
 ]
 
 [project.urls]
