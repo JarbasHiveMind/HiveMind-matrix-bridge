@@ -12,4 +12,6 @@ jobs:
     with:
       python_versions: '["3.10", "3.11", "3.12", "3.13"]'
       install_extras: 'test'
-      test_path: 'tests/'
+      # network-free smoke tests only; the real-hub e2e suite (tests/e2e) runs
+      # in its own workflow (e2e_tests.yml) where hivescope is installed.
+      test_path: 'tests/test_smoke.py'

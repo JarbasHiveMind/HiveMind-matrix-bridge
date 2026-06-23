@@ -13,6 +13,16 @@ dynamic = ["version", "dependencies"]
 
 [project.optional-dependencies]
 test = ["pytest"]
+# e2e drives the bridge against a REAL hivemind-core hub booted in-process by
+# hivescope (loopback WebSocket); only the Matrix side is mocked. hivescope is
+# pinned to the loopback whitelist-only branch until that fix is released
+# (the published release lacks the loopback + get_client_by_id fixes the hub
+# needs); install with --pre because the hivemind-core stack it pulls is still
+# prerelease (2.x migration). See .github/workflows/e2e_tests.yml.
+e2e = [
+    "pytest",
+    "hivescope @ git+https://github.com/JarbasHiveMind/hivescope.git@fix/loopback-whitelist-only-connection",
+]
 
 [project.urls]
 Homepage = "https://github.com/JarbasHiveMind/HiveMind-matrix-bridge"

@@ -1,0 +1,42 @@
+name: HiveMind E2E
+
+# Boots a REAL hivemind-core hub in-process (hivescope loopback WebSocket) and
+# drives the Matrix bridge end to end against it. The Matrix side is mocked
+# explicitly in the test (no importorskip — matrix-client is a hard dep that is
+# installed and imported; only the network-touching MatrixClient is patched).
+#
+# TODO: a FULL Matrix loop test would boot a containerized homeserver (Conduit
+# or Synapse) instead of mocking matrix-client. That is the natural follow-up.
+
+on:
+  pull_request:
+    branches: [dev, master]
+  workflow_dispatch:
+
+jobs:
+  hivemind_e2e:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.11"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -q
+          sudo apt-get install -yq python3-dev libssl-dev
+
+      # ovos-bus-client 2.x is still prerelease; --pre lets pip accept the
+      # alpha hivemind-core stack that hivescope pulls (2.x migration). The
+      # e2e extra pins hivescope to the loopback whitelist-only branch.
+      - name: Install bridge + e2e harness (hivescope from loopback branch)
+        run: |
+          python -m pip install --upgrade pip
+          pip install --pre -e ".[e2e]"
+
+      - name: Run HiveMind e2e
+        run: |
+          pytest tests/e2e/ -v -p no:cacheprovider \
+            -W ignore::pytest.PytestUnraisableExceptionWarning
