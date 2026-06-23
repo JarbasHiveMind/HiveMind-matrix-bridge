@@ -1,4 +1,6 @@
-hivemind_bus_client>=0.4.2,<1.0.0
-click
-python-matrixbot>=0.0.7
+hivemind-bus-client>=0.9.0,<1.0.0
 ovos-solver-hivemind-plugin
+python-matrixbot>=0.0.7
+matrix-client
+click
+ovos-utils

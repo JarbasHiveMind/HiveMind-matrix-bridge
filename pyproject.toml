@@ -1,0 +1,29 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "HiveMind-matrix-bridge"
+description = "Matrix bridge for HiveMind — relay a Matrix chatroom to a HiveMind node"
+readme = "README.md"
+authors = [{ name = "jarbasAI", email = "jarbasai@mailfence.com" }]
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dynamic = ["version", "dependencies"]
+
+[project.optional-dependencies]
+test = ["pytest"]
+
+[project.urls]
+Homepage = "https://github.com/JarbasHiveMind/HiveMind-matrix-bridge"
+
+[project.scripts]
+HiveMind-matrix = "hm_matrix_bridge.__main__:main"
+
+[tool.setuptools]
+packages = ["hm_matrix_bridge"]
+include-package-data = true
+
+[tool.setuptools.dynamic]
+version = { attr = "hm_matrix_bridge.version.__version__" }
+dependencies = { file = ["requirements.txt"] }
