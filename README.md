@@ -97,4 +97,6 @@ When `--key/--password/--host` are omitted they are read from the stored `NodeId
 
 ## Documentation
 
-See [`docs/`](docs/) for a full setup walkthrough, a credential reference, and worked examples.
+- **[Operator setup](docs/operator-setup.md)** — getting the bot's Matrix account + access token (or self-hosting a homeserver), registering the bridge on a HiveMind hub, the run command, and live e2e.
+
+See also [`docs/`](docs/) for a full setup walkthrough, a credential reference, and worked examples.
