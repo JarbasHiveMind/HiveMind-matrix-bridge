@@ -1,17 +1,28 @@
 # Changelog
 
-## [Unreleased](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/HEAD)
+## [0.2.0a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.0a1) (2026-06-24)
 
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/00eb822de58a1a1137c2a1c9ebc5196f7b04198d...HEAD)
-
-**Closed issues:**
-
-- Not able to reconnect [\#2](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/issues/2)
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.1.2a2...0.2.0a1)
 
 **Merged pull requests:**
 
-- semver [\#5](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/5) ([JarbasAl](https://github.com/JarbasAl))
-- refactor!:move to solver [\#4](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/4) ([JarbasAl](https://github.com/JarbasAl))
+- feat: modernize packaging and CI [\#18](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/18) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.2a2](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.1.2a2) (2026-06-05)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.1.2a1...0.1.2a2)
+
+**Merged pull requests:**
+
+- docs: zero-to-hero README and docs [\#15](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/15) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.2a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.1.2a1) (2025-12-18)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.1.1...0.1.2a1)
+
+**Merged pull requests:**
+
+- Configure Renovate [\#7](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/7) ([renovate[bot]](https://github.com/apps/renovate))
 
 
 
