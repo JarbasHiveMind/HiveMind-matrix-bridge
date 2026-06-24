@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.0a1) (2026-06-24)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.1.2a2...0.2.0a1)
+
+**Merged pull requests:**
+
+- feat: modernize packaging and CI [\#18](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/18) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.2a2](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.1.2a2) (2026-06-05)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.1.2a1...0.1.2a2)
@@ -11,10 +19,6 @@
 ## [0.1.2a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.1.2a1) (2025-12-18)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.1.1...0.1.2a1)
-
-**Implemented enhancements:**
-
-- Replace python-matrixbox by simplematrixbotlib [\#6](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/issues/6)
 
 **Merged pull requests:**
 
