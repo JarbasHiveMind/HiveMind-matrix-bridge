@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.0a2](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.0a2) (2026-07-31)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.0a1...0.2.0a2)
+
+**Merged pull requests:**
+
+- docs: rewrite README in Simplified Technical English [\#20](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/20) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.0a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.0a1) (2026-06-24)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.1.2a2...0.2.0a1)
