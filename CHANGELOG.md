@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.1a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a1) (2026-08-14)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.0a2...0.2.1a1)
+
+**Merged pull requests:**
+
+- fix: raise hivemind-bus-client floor to \>=1.0.13a1, drop \<1.0.0 cap [\#24](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/24) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.0a2](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.0a2) (2026-07-31)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.0a1...0.2.0a2)
