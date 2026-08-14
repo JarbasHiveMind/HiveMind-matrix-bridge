@@ -42,6 +42,15 @@ hivemind-core add-client --name matrix-bridge \
 
 Note the access key and password. The bridge needs them to authenticate.
 
+A new client is registered but mute: the hub denies every message type until you whitelist it. Run this too, or the bridge will connect and never do anything:
+
+```bash
+hivemind-core allow-msg recognizer_loop:utterance matrix-bridge
+hivemind-core allow-msg speak matrix-bridge
+```
+
+If you are running more than one bridge on the same host (Matrix, Mattermost, DeltaChat, HackChat side by side), give each one its own `hivemind-client set-identity` credentials and, if applicable, its own config directory. Bridges that share an identity share a Noise session pin, and the hub will treat reconnects from either one as the same client, which breaks encryption for both.
+
 **2. Store the HiveMind credentials** so they are read automatically:
 
 ```bash
@@ -94,6 +103,10 @@ When `--key/--password/--host` are omitted, the bridge reads them from the store
 - **Bot ignores messages**: the message must contain `--botname` exactly. Messages without the mention are dropped by design.
 - **Reply is the literal text `Error`**: the hub did not return a `speak` within the response timeout (30s). Confirm the hub is reachable, the access key is authorized, and an OVOS pipeline produces spoken answers.
 - **Connection refused or no reply**: verify `--host` and `--port` point at the running hub, and that the bridge's access key is registered (`hivemind-core list-clients`).
+- **Bridge connects but the room never gets a reply**: the client is registered but not whitelisted. Run `hivemind-core allow-msg recognizer_loop:utterance matrix-bridge` and `hivemind-core allow-msg speak matrix-bridge` on the hub.
+- **`invalid api key` at connect time**: the hub rejected the handshake, usually because the bridge (or `hivemind-bus-client`) is older than the hub. Upgrade the bridge.
+- **"reconnect worker already running" in the bridge log**: a known issue in older `hivemind-bus-client` releases when a connection drops and retries overlap. It is fixed upstream; upgrade `hivemind-bus-client` and the bridge.
+- **Handshake fails after the hub was reinstalled or the client's key changed**: the bridge is holding a stale Noise session pin from a previous run. Clear it on the hub with `hivemind-core reset-noise-pin matrix-bridge` and restart the bridge.
 
 ## Documentation
 
