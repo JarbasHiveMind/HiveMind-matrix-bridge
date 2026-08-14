@@ -1,4 +1,4 @@
-hivemind-bus-client>=0.9.2a1,<1.0.0
+hivemind-bus-client>=1.0.13a1,<2.0.0
 ovos-bus-client>=2.0.0a3
 # ovos-solver-hivemind-plugin transitively pulls ovos-plugin-manager and
 # ovos-translate-server-plugin. Floor both to the prerelease line that supports
