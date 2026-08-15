@@ -7,6 +7,8 @@
 **Merged pull requests:**
 
 - ci: test, build and publish the container image [\#25](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/25) ([JarbasAl](https://github.com/JarbasAl))
+- Add Dockerfile [\#23](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/23) ([JarbasAl](https://github.com/JarbasAl))
+- docs: make the hub allow-msg whitelist step explicit [\#22](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/22) ([JarbasAl](https://github.com/JarbasAl))
 
 ## [0.2.1a2](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a2) (2026-08-15)
 
