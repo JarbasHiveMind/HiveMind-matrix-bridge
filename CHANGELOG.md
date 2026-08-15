@@ -1,21 +1,30 @@
 # Changelog
 
+## [0.2.1a7](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a7) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a6...0.2.1a7)
+
+**Merged pull requests:**
+
+- Update actions/checkout action to v7 [\#31](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/31) ([renovate[bot]](https://github.com/apps/renovate))
+- Update python Docker tag to v3.14 [\#30](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/30) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.2.1a6](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a6) (2026-08-15)
 
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a4...0.2.1a6)
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a5...0.2.1a6)
 
 **Merged pull requests:**
 
 - Update docker/login-action action to v4 [\#35](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/35) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/build-push-action action to v7 [\#34](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/34) ([renovate[bot]](https://github.com/apps/renovate))
 
-## [0.2.1a4](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a4) (2026-08-15)
-
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a5...0.2.1a4)
-
 ## [0.2.1a5](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a5) (2026-08-15)
 
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a3...0.2.1a5)
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a4...0.2.1a5)
+
+## [0.2.1a4](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a4) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a3...0.2.1a4)
 
 ## [0.2.1a3](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a3) (2026-08-15)
 
