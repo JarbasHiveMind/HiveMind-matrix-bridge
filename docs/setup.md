@@ -37,6 +37,15 @@ hivemind-core add-client --name matrix-bridge \
 
 Keep the access key and password. The bridge authenticates with them. List existing clients with `hivemind-core list-clients`.
 
+A freshly registered client can connect, but the hub will not act on anything it sends until you whitelist its message types. This step is easy to miss, and a skipped one is the most common reason a bridge "connects but does nothing":
+
+```bash
+hivemind-core allow-msg recognizer_loop:utterance matrix-bridge
+hivemind-core allow-msg speak matrix-bridge
+```
+
+The first line lets the bridge send utterances into the hub. The second lets the hub's spoken replies come back out to the bridge. Without both, the bridge sits there connected and silent.
+
 ## Step 3: create a Matrix bot account
 
 1. Register a Matrix account for the bot on any homeserver (`matrix.org` or self-hosted).

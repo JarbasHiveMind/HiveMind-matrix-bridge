@@ -120,6 +120,14 @@ committed file. A token grants full control of the bot account. Revoke it
 Anyone in the room who mentions the bot can reach the hub. Restrict access at
 the hub with client ACLs or `allowed_types`.
 
+A freshly registered client is denied every message type by default. If you
+skipped this in step 3, do it now, or the bridge connects and never replies:
+
+```bash
+hivemind-core allow-msg recognizer_loop:utterance matrix-bridge
+hivemind-core allow-msg speak matrix-bridge
+```
+
 ## Testing (live e2e)
 
 `tests/e2e/test_matrix_bridge_e2e.py` runs the **real HiveMind round-trip**
