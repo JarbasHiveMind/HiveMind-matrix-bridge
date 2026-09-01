@@ -18,16 +18,19 @@ class HiveMindMatrixBridge:
     def handle_matrix_utterance(self, event):
         utt = event['content']['body']
         LOG.debug(f"{event['sender']}: {utt}")
-        if self.bot.bot_mention in utt:
-            LOG.debug("bot mentioned")
-            utt = utt.replace(f"@{self.bot.bot_mention}", "") \
-                .replace(f"{self.bot.bot_mention}:", "") \
-                .replace(self.bot.bot_mention, "").strip()
-
-            # TODO - lang detection plugin here
-            LOG.debug(f"asking hivemind: {utt}")
-            utterance = self.solver.get_spoken_answer(utt)
-            LOG.info(f"HiveMind: {utterance}")
-            self.bot.room.send_text(utterance or "Error")
-        else:
+        mention = self.bot.bot_mention
+        if mention and mention not in utt:
             LOG.debug("bot not mentioned. ignoring")
+            return
+
+        if mention:
+            LOG.debug("bot mentioned")
+            utt = utt.replace(f"@{mention}", "") \
+                .replace(f"{mention}:", "") \
+                .replace(mention, "").strip()
+
+        # TODO - lang detection plugin here
+        LOG.debug(f"asking hivemind: {utt}")
+        utterance = self.solver.get_spoken_answer(utt)
+        LOG.info(f"HiveMind: {utterance}")
+        self.bot.room.send_text(utterance or "Error")
