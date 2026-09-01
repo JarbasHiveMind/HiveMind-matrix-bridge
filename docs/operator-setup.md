@@ -90,7 +90,7 @@ Flags (verify with `HiveMind-matrix run --help`):
 
 | Flag | Meaning | Default |
 | --- | --- | --- |
-| `--botname` | mention prefix that triggers the bot | none |
+| `--botname` | mention prefix that triggers the bot; if omitted, the bridge answers every message in the room | none |
 | `--matrixtoken` | Matrix access token for the bot account | none |
 | `--matrixhost` | homeserver URL | `https://matrix.org` |
 | `--room` | room alias to join | `#hivemind-bots:matrix.org` |

@@ -86,7 +86,7 @@ The bridge strips the mention, forwards `what time is it?` to the hub, waits for
 
 | Option | Description | Default |
 | --- | --- | --- |
-| `--botname` | Mention prefix that triggers the bot | none |
+| `--botname` | Mention prefix that triggers the bot. If omitted, the bridge answers every message in the room. | none |
 | `--matrixtoken` | Matrix access token for the bot account | none |
 | `--matrixhost` | Matrix homeserver URL | `https://matrix.org` |
 | `--room` | Room alias to join | `#hivemind-bots:matrix.org` |
@@ -100,7 +100,7 @@ When `--key/--password/--host` are omitted, the bridge reads them from the store
 ## Troubleshooting
 
 - **`NodeIdentity not set`**: run `hivemind-client set-identity`, or pass `--key/--password/--host` explicitly.
-- **Bot ignores messages**: the message must contain `--botname` exactly. Messages without the mention are dropped by design.
+- **Bot ignores messages**: with `--botname` set, the message must contain it exactly, and messages without the mention are dropped by design. Without `--botname`, the bridge answers every message in the room instead.
 - **Reply is the literal text `Error`**: the hub did not return a `speak` within the response timeout (30s). Confirm the hub is reachable, the access key is authorized, and an OVOS pipeline produces spoken answers.
 - **Connection refused or no reply**: verify `--host` and `--port` point at the running hub, and that the bridge's access key is registered (`hivemind-core list-clients`).
 - **Bridge connects but the room never gets a reply**: the client is registered but not whitelisted. Run `hivemind-core allow-msg recognizer_loop:utterance matrix-bridge` and `hivemind-core allow-msg speak matrix-bridge` on the hub.

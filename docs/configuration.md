@@ -9,7 +9,7 @@ The bridge needs two sets of credentials: one for Matrix, one for the HiveMind h
 | `--matrixhost` | Homeserver base URL, for example `https://matrix.org`. Default `https://matrix.org`. |
 | `--matrixtoken` | Access token for the bot account. Get it from a logged-in Matrix client. |
 | `--room` | Alias of the room to join, for example `#hivemind-bots:matrix.org`. The bot account must be a member. |
-| `--botname` | Mention prefix that triggers the bot. The bridge processes only messages that contain this string. |
+| `--botname` | Mention prefix that triggers the bot. The bridge processes only messages that contain this string. If omitted, the bridge processes every message in the room. |
 
 The bot strips the mention before it sends the rest of the message to the hub. It recognizes the forms `@botname`, `botname:`, and bare `botname`.
 

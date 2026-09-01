@@ -21,12 +21,12 @@ def test_package_exports_bridge():
     assert hasattr(hm_matrix_bridge, "HiveMindMatrixBridge")
 
 
-def _make_bridge():
+def _make_bridge(bot_mention="thehivebot"):
     """Build a bridge with MatrixBot and HiveMindSolver mocked out."""
     with patch("hm_matrix_bridge.MatrixBot") as mock_bot_cls, \
             patch("hm_matrix_bridge.HiveMindSolver") as mock_solver_cls:
         mock_bot = MagicMock()
-        mock_bot.bot_mention = "thehivebot"
+        mock_bot.bot_mention = bot_mention
         mock_bot_cls.return_value = mock_bot
 
         mock_solver = MagicMock()
@@ -36,7 +36,7 @@ def _make_bridge():
             matrix_host="https://matrix.example",
             matrix_token="fake-token",
             room_alias="#test:matrix.example",
-            bot_mention="thehivebot",
+            bot_mention=bot_mention,
         )
         return bridge, mock_bot, mock_solver
 
@@ -75,3 +75,19 @@ def test_handle_utterance_ignored_when_not_mentioned():
 
     mock_solver.get_spoken_answer.assert_not_called()
     mock_bot.room.send_text.assert_not_called()
+
+
+def test_handle_utterance_respond_to_all_when_no_mention_configured():
+    """With no --botname configured, bot_mention is None and every
+    utterance that reaches the handler should be answered, not crash."""
+    bridge, mock_bot, mock_solver = _make_bridge(bot_mention=None)
+    mock_solver.get_spoken_answer.return_value = "hello back"
+
+    event = {
+        "sender": "@user:matrix.example",
+        "content": {"body": "what time is it"},
+    }
+    bridge.handle_matrix_utterance(event)
+
+    mock_solver.get_spoken_answer.assert_called_once_with("what time is it")
+    mock_bot.room.send_text.assert_called_once_with("hello back")
