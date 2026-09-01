@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.2a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.2a1) (2026-09-01)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a7...0.2.2a1)
+
+**Merged pull requests:**
+
+- fix: guard None bot\_mention to prevent crash on every Matrix message [\#41](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/41) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.1a7](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a7) (2026-08-15)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a6...0.2.1a7)
