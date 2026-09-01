@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.3a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.3a1) (2026-09-01)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.2a1...0.2.3a1)
+
+**Merged pull requests:**
+
+- fix\(deps\): raise floor pins to the proven HiveMind stack [\#43](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/43) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.2.2a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.2a1) (2026-09-01)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a7...0.2.2a1)
@@ -19,20 +27,20 @@
 
 ## [0.2.1a6](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a6) (2026-08-15)
 
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a5...0.2.1a6)
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a4...0.2.1a6)
 
 **Merged pull requests:**
 
 - Update docker/login-action action to v4 [\#35](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/35) ([renovate[bot]](https://github.com/apps/renovate))
 - Update docker/build-push-action action to v7 [\#34](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/34) ([renovate[bot]](https://github.com/apps/renovate))
 
-## [0.2.1a5](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a5) (2026-08-15)
-
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a4...0.2.1a5)
-
 ## [0.2.1a4](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a4) (2026-08-15)
 
-[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a3...0.2.1a4)
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a5...0.2.1a4)
+
+## [0.2.1a5](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a5) (2026-08-15)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.1a3...0.2.1a5)
 
 ## [0.2.1a3](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.1a3) (2026-08-15)
 
