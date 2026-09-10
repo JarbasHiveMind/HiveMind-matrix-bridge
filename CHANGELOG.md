@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.3a2](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.3a2) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.3a1...0.2.3a2)
+
+**Merged pull requests:**
+
+- Update docker/metadata-action action to v6 [\#38](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/38) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.2.3a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.3a1) (2026-09-01)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.2a1...0.2.3a1)
