@@ -30,7 +30,9 @@ class HiveMindMatrixBridge:
                 .replace(mention, "").strip()
 
         # TODO - lang detection plugin here
+        room_id = self.bot.room.room_id
+        context = {"session": {"session_id": f"matrix-{room_id}"}}
         LOG.debug(f"asking hivemind: {utt}")
-        utterance = self.solver.get_spoken_answer(utt)
+        utterance = self.solver.get_spoken_answer(utt, context=context)
         LOG.info(f"HiveMind: {utterance}")
         self.bot.room.send_text(utterance or "Error")

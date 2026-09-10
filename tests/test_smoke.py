@@ -87,7 +87,38 @@ def test_handle_utterance_respond_to_all_when_no_mention_configured():
         "sender": "@user:matrix.example",
         "content": {"body": "what time is it"},
     }
+    mock_bot.room.room_id = "!room1:matrix.example"
     bridge.handle_matrix_utterance(event)
 
-    mock_solver.get_spoken_answer.assert_called_once_with("what time is it")
+    mock_solver.get_spoken_answer.assert_called_once_with(
+        "what time is it",
+        context={"session": {"session_id": "matrix-!room1:matrix.example"}},
+    )
+    sent_context = mock_solver.get_spoken_answer.call_args.kwargs["context"]
+    assert "lang" not in sent_context["session"]
     mock_bot.room.send_text.assert_called_once_with("hello back")
+
+
+def test_handle_utterance_uses_a_session_per_room():
+    """Two Matrix rooms must map to two distinct Layer-1 sessions
+    (HIVEMIND-BRIDGE-1 §4), never collapsing into the connection default."""
+    bridge, mock_bot, mock_solver = _make_bridge(bot_mention=None)
+    mock_solver.get_spoken_answer.return_value = "hello back"
+
+    event = {
+        "sender": "@user:matrix.example",
+        "content": {"body": "what time is it"},
+    }
+
+    mock_bot.room.room_id = "!room1:matrix.example"
+    bridge.handle_matrix_utterance(event)
+
+    mock_bot.room.room_id = "!room2:matrix.example"
+    bridge.handle_matrix_utterance(event)
+
+    first_context = mock_solver.get_spoken_answer.call_args_list[0].kwargs["context"]
+    second_context = mock_solver.get_spoken_answer.call_args_list[1].kwargs["context"]
+
+    assert first_context["session"]["session_id"] == "matrix-!room1:matrix.example"
+    assert second_context["session"]["session_id"] == "matrix-!room2:matrix.example"
+    assert first_context["session"]["session_id"] != second_context["session"]["session_id"]
