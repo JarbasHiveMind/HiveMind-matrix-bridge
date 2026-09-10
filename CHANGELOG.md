@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.4a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.4a1) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.3a4...0.2.4a1)
+
+**Merged pull requests:**
+
+- fix: give each Matrix room its own HiveMind session [\#48](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/48) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.2.3a4](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.3a4) (2026-09-10)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.3a3...0.2.3a4)
