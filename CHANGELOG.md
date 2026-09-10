@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.3a4](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.3a4) (2026-09-10)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.3a3...0.2.3a4)
+
+**Merged pull requests:**
+
+- Update docker/setup-qemu-action action to v4 [\#40](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/40) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.2.3a3](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.3a3) (2026-09-10)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.3a2...0.2.3a3)
