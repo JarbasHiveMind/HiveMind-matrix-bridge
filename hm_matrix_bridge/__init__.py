@@ -35,4 +35,4 @@ class HiveMindMatrixBridge:
         LOG.debug(f"asking hivemind: {utt}")
         utterance = self.solver.get_spoken_answer(utt, context=context)
         LOG.info(f"HiveMind: {utterance}")
-        self.bot.room.send_text(utterance or "Error")
+        self.bot.send_text(utterance or "Error")

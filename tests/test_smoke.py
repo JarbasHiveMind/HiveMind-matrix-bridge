@@ -61,7 +61,7 @@ def test_handle_utterance_when_mentioned():
     mock_solver.get_spoken_answer.assert_called_once()
     asked = mock_solver.get_spoken_answer.call_args[0][0]
     assert "thehivebot" not in asked
-    mock_bot.room.send_text.assert_called_once_with("hello back")
+    mock_bot.send_text.assert_called_once_with("hello back")
 
 
 def test_handle_utterance_ignored_when_not_mentioned():
@@ -74,7 +74,7 @@ def test_handle_utterance_ignored_when_not_mentioned():
     bridge.handle_matrix_utterance(event)
 
     mock_solver.get_spoken_answer.assert_not_called()
-    mock_bot.room.send_text.assert_not_called()
+    mock_bot.send_text.assert_not_called()
 
 
 def test_handle_utterance_respond_to_all_when_no_mention_configured():
@@ -96,7 +96,7 @@ def test_handle_utterance_respond_to_all_when_no_mention_configured():
     )
     sent_context = mock_solver.get_spoken_answer.call_args.kwargs["context"]
     assert "lang" not in sent_context["session"]
-    mock_bot.room.send_text.assert_called_once_with("hello back")
+    mock_bot.send_text.assert_called_once_with("hello back")
 
 
 def test_handle_utterance_uses_a_session_per_room():
