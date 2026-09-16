@@ -122,3 +122,45 @@ def test_handle_utterance_uses_a_session_per_room():
     assert first_context["session"]["session_id"] == "matrix-!room1:matrix.example"
     assert second_context["session"]["session_id"] == "matrix-!room2:matrix.example"
     assert first_context["session"]["session_id"] != second_context["session"]["session_id"]
+
+
+def test_send_retries_after_matrix_rate_limit(monkeypatch):
+    """A 429 with retry_after_ms is retried once with the server's own
+    wait, and the message is delivered on the second attempt."""
+    from matrix_client.api import MatrixRequestError
+
+    bridge, mock_bot, mock_solver = _make_bridge(bot_mention=None)
+    mock_solver.get_spoken_answer.return_value = "hello back"
+
+    rate_limited = MatrixRequestError(
+        code=429, content='{"errcode": "M_LIMIT_EXCEEDED", "retry_after_ms": 2500}'
+    )
+    mock_bot.room.send_text.side_effect = [rate_limited, None]
+
+    sleeps = []
+    monkeypatch.setattr("hm_matrix_bridge.time.sleep", lambda s: sleeps.append(s))
+
+    bridge._send_text("hello back")
+
+    assert mock_bot.room.send_text.call_count == 2
+    mock_bot.room.send_text.assert_called_with("hello back")
+    assert sleeps == [2.5]
+
+
+def test_send_drops_after_exhausting_rate_limit_retries(monkeypatch):
+    """Every attempt gets rate-limited: the handler logs and returns
+    without raising, instead of crashing the Matrix listener thread."""
+    from matrix_client.api import MatrixRequestError
+
+    bridge, mock_bot, mock_solver = _make_bridge(bot_mention=None)
+
+    rate_limited = MatrixRequestError(
+        code=429, content='{"errcode": "M_LIMIT_EXCEEDED", "retry_after_ms": 500}'
+    )
+    mock_bot.room.send_text.side_effect = rate_limited
+
+    monkeypatch.setattr("hm_matrix_bridge.time.sleep", lambda s: None)
+
+    bridge._send_text("hello back")  # must not raise
+
+    assert mock_bot.room.send_text.call_count == hm_matrix_bridge.MAX_SEND_ATTEMPTS
