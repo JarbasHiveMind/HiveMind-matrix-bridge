@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.2.5a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.5a1) (2026-09-16)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.4a1...0.2.5a1)
+
+**Merged pull requests:**
+
+- fix: bounded retry with backoff on Matrix send rate limit [\#51](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/51) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.2.4a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.4a1) (2026-09-10)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.3a4...0.2.4a1)
