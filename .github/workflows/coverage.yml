@@ -1,0 +1,21 @@
+name: Code Coverage
+
+on:
+  pull_request:
+    branches: [dev]
+  workflow_dispatch:
+
+jobs:
+  coverage:
+    uses: OpenVoiceOS/gh-automations/.github/workflows/coverage.yml@dev
+    secrets: inherit
+    with:
+      python_version: '3.11'
+      coverage_source: 'hm_matrix_bridge'
+      # install the package's [test] extra (pytest); the coverage workflow's own
+      # 'install_extras' input means extra pip ARGUMENTS, not an extras name.
+      test_extras: 'test'
+      # offline unit/smoke tests only; the real-hub e2e suite (tests/e2e) needs
+      # hivescope and runs in its own workflow (e2e_tests.yml).
+      test_path: 'tests/test_smoke.py'
+      min_coverage: 0
