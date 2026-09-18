@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.3.0a1) (2026-09-18)
+
+[Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.5a1...0.3.0a1)
+
+**Merged pull requests:**
+
+- feat: pace matrix sends, and report a send the server holds [\#52](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/pull/52) ([openvoiceos-bot](https://github.com/openvoiceos-bot))
+
 ## [0.2.5a1](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/tree/0.2.5a1) (2026-09-16)
 
 [Full Changelog](https://github.com/JarbasHiveMind/HiveMind-matrix-bridge/compare/0.2.4a1...0.2.5a1)
