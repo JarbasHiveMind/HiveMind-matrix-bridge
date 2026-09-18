@@ -50,9 +50,17 @@ class HiveMindMatrixBridge:
         self._send_text(utterance or "Error")
 
     def _send_text(self, text):
+        """Send a reply through the paced bot send, with a bounded retry.
+
+        ``bot.send_text`` keeps the interval between sends and reports a send
+        the server holds. The retry loop stays for a 429 that reaches this
+        layer as an exception; ``matrix_client`` itself sleeps and retries a
+        429 inside ``_send``, so in practice this loop sees one only when that
+        library changes.
+        """
         for attempt in range(1, MAX_SEND_ATTEMPTS + 1):
             try:
-                self.bot.room.send_text(text)
+                self.bot.send_text(text)
                 return
             except MatrixRequestError as e:
                 if e.code != 429:

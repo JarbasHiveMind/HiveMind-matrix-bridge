@@ -61,7 +61,7 @@ def test_handle_utterance_when_mentioned():
     mock_solver.get_spoken_answer.assert_called_once()
     asked = mock_solver.get_spoken_answer.call_args[0][0]
     assert "thehivebot" not in asked
-    mock_bot.room.send_text.assert_called_once_with("hello back")
+    mock_bot.send_text.assert_called_once_with("hello back")
 
 
 def test_handle_utterance_ignored_when_not_mentioned():
@@ -74,7 +74,7 @@ def test_handle_utterance_ignored_when_not_mentioned():
     bridge.handle_matrix_utterance(event)
 
     mock_solver.get_spoken_answer.assert_not_called()
-    mock_bot.room.send_text.assert_not_called()
+    mock_bot.send_text.assert_not_called()
 
 
 def test_handle_utterance_respond_to_all_when_no_mention_configured():
@@ -96,7 +96,7 @@ def test_handle_utterance_respond_to_all_when_no_mention_configured():
     )
     sent_context = mock_solver.get_spoken_answer.call_args.kwargs["context"]
     assert "lang" not in sent_context["session"]
-    mock_bot.room.send_text.assert_called_once_with("hello back")
+    mock_bot.send_text.assert_called_once_with("hello back")
 
 
 def test_handle_utterance_uses_a_session_per_room():
@@ -135,15 +135,15 @@ def test_send_retries_after_matrix_rate_limit(monkeypatch):
     rate_limited = MatrixRequestError(
         code=429, content='{"errcode": "M_LIMIT_EXCEEDED", "retry_after_ms": 2500}'
     )
-    mock_bot.room.send_text.side_effect = [rate_limited, None]
+    mock_bot.send_text.side_effect = [rate_limited, None]
 
     sleeps = []
     monkeypatch.setattr("hm_matrix_bridge.time.sleep", lambda s: sleeps.append(s))
 
     bridge._send_text("hello back")
 
-    assert mock_bot.room.send_text.call_count == 2
-    mock_bot.room.send_text.assert_called_with("hello back")
+    assert mock_bot.send_text.call_count == 2
+    mock_bot.send_text.assert_called_with("hello back")
     assert sleeps == [2.5]
 
 
@@ -157,10 +157,23 @@ def test_send_drops_after_exhausting_rate_limit_retries(monkeypatch):
     rate_limited = MatrixRequestError(
         code=429, content='{"errcode": "M_LIMIT_EXCEEDED", "retry_after_ms": 500}'
     )
-    mock_bot.room.send_text.side_effect = rate_limited
+    mock_bot.send_text.side_effect = rate_limited
 
     monkeypatch.setattr("hm_matrix_bridge.time.sleep", lambda s: None)
 
     bridge._send_text("hello back")  # must not raise
 
-    assert mock_bot.room.send_text.call_count == hm_matrix_bridge.MAX_SEND_ATTEMPTS
+    assert mock_bot.send_text.call_count == hm_matrix_bridge.MAX_SEND_ATTEMPTS
+
+
+def test_reply_path_goes_through_the_paced_bot_send():
+    """The reply must go through ``bot.send_text``, which paces every send
+    and reports a held one. A direct ``bot.room.send_text`` skips both, so
+    the pacing would cover only the greeting."""
+    bridge, mock_bot, mock_solver = _make_bridge(bot_mention=None)
+    mock_solver.get_spoken_answer.return_value = "hello back"
+
+    bridge.handle_matrix_utterance({"sender": "@u:x", "content": {"body": "hi"}})
+
+    mock_bot.send_text.assert_called_once_with("hello back")
+    mock_bot.room.send_text.assert_not_called()
