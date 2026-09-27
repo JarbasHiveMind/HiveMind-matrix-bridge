@@ -15,7 +15,7 @@ jobs:
       # install the package's [test] extra (pytest); the coverage workflow's own
       # 'install_extras' input means extra pip ARGUMENTS, not an extras name.
       test_extras: 'test'
-      # offline unit/smoke tests only; the real-hub e2e suite (tests/e2e) needs
-      # hivescope and runs in its own workflow (e2e_tests.yml).
-      test_path: 'tests/test_smoke.py'
+      # offline tests only, all of tests/ less tests/e2e; the real-hub e2e
+      # suite needs hivescope and runs in its own workflow (e2e_tests.yml).
+      test_path: 'tests/ --ignore=tests/e2e'
       min_coverage: 0
